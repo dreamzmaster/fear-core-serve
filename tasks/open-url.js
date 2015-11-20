@@ -1,8 +1,8 @@
 'use strict';
 
-module.exports = function taskFactory () {
+module.exports = function taskFactory (protocol, host, port, page, queryString) {
 
-    return function task (protocol, host, port, page, queryString) {
+    return function task () {
 
         var openUrl = require('open');
 
@@ -13,6 +13,5 @@ module.exports = function taskFactory () {
         }
 
         return openUrl(url);
-
     };
 };
