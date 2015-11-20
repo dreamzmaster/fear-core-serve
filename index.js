@@ -1,5 +1,6 @@
 'use strict';
 
 module.exports = {
-    serve: require('./tasks/serve')
+    startServer: require('./tasks/start-server'),
+    openUrl: require('./tasks/open-url')
 };
