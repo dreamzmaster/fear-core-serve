@@ -34,7 +34,6 @@
     "mocha": "2.3.3",
     "phantomjs": "1.9.18",
     "run-sequence": "1.1.4",
-    "gulp-connect": "2.2.0",
     "express": "4.13.1",
     "gulp-if": "1.2.5",
     "connect": "3.4.0",
@@ -42,17 +41,17 @@
     "connect-livereload": "0.5.3",
     "connect-modrewrite": "0.7.12",
     "open": "0.0.5",
-    "connect-mustache-middleware": "DigitalInnovation/connect-mustache-middleware"
+    "connect-mustache-middleware": "git+https://github.com/DigitalInnovation/connect-mustache-middleware"
   },
   "devDependencies": {
     "eslint": "1.2.1",
     "onchange": "2.0.0"
   },
   "gitHead": "077bc9a3c081b359a778dd9a32be77382913b642",
-  "readme": "",
+  "readme": "ERROR: No README data found!",
   "readmeFilename": "README.md",
   "_id": "fear-core-serve@1.0.0",
-  "_shasum": "7a315de41f2a30537f254c2cc8ee6c5e96c904dd",
-  "_from": "../../../../../../var/folders/sd/1p38z21j0kxfthyrfsmg2lwc0000gp/T/npm-60727-90e1e807/git-cache-f2212bd8fd74/077bc9a3c081b359a778dd9a32be77382913b642",
-  "_resolved": "git+https://github.com/digitalinnovation/fear-core-serve#077bc9a3c081b359a778dd9a32be77382913b642"
+  "_shasum": "a8a9d5676448d80bedb0d72d0608e4425bba822a",
+  "_from": "../../../../../../var/folders/sd/1p38z21j0kxfthyrfsmg2lwc0000gp/T/npm-88061-7f8ce0f4/git-cache-b34a41353b10/ca6a1d90930c7f3381644a955f43f4d488c8da02",
+  "_resolved": "git+https://github.com/digitalinnovation/fear-core-serve#ca6a1d90930c7f3381644a955f43f4d488c8da02"
 }
