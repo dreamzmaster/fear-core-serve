@@ -25,6 +25,7 @@
   "homepage": "https://github.com/DigitalInnovation/fear-core-serve",
   "dependencies": {
     "chai": "3.4.1",
+    "connect-mustache-middleware": "git+https://github.com/DigitalInnovation/connect-mustache-middleware",
     "eslint-config-fear-core": "git+https://github.com/digitalinnovation/fear-core-eslint-config",
     "extend": "2.0.1",
     "gulp": "3.9.0",
@@ -41,8 +42,7 @@
     "connect-query": "0.2.0",
     "connect-livereload": "0.5.3",
     "connect-modrewrite": "0.7.12",
-    "open": "0.0.5",
-    "connect-mustache-middleware": "git+https://github.com/DigitalInnovation/connect-mustache-middleware"
+    "open": "0.0.5"
   },
   "devDependencies": {
     "eslint": "1.2.1",
