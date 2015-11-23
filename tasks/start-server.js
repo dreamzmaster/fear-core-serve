@@ -10,7 +10,7 @@ module.exports = function taskFactory (host, port, mustacheConfig, channelDefaul
         var mustache = require('connect-mustache-middleware');
         var modRewrite = require('connect-modrewrite');
         var livereload = require('connect-livereload');
-        var middleware = [liveReloadConditions(), query()];
+        var middleware = [getLiveReloadMiddleware(), query()];
 
         function getLiveReloadMiddleware() {
             return gulpif(liveReloadConditions(), livereload());
