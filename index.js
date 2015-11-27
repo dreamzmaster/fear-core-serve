@@ -1,6 +1,6 @@
 'use strict';
 
-parent.module.exports.serve = {
+module.exports = {
     startServer: require('./tasks/start-server'),
     openUrl: require('./tasks/open-url')
 };
