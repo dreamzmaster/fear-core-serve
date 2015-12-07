@@ -2,8 +2,6 @@
 
 module.exports = function taskFactory (host, port, mustacheConfig, channelDefaults, customMiddleware, staticPaths, liveReloadConditions) {
 
-    return function task () {
-
         var connect = require('gulp-connect');
         var gulpif = require('gulp-if');
         var query = require('connect-query');
@@ -66,6 +64,6 @@ module.exports = function taskFactory (host, port, mustacheConfig, channelDefaul
             middleware: getMiddleware
         };
 
-        return connect.server(opts);
-    };
+        connect.server(opts);
+        return connect;
 };
