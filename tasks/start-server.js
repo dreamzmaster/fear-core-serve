@@ -39,7 +39,7 @@ module.exports = function taskFactory (host, port, mustacheConfig, channelDefaul
                 '^\/(' + exclude.join('|') + ')(\/.*)$ /$1$2', //assets
                 '^\/docs\/(.*)$ /generated/$1/index.html [L]', //documentation pages
                 '^\/$ /views/default/pages/home/index.html [L]', //home page
-                '^(?!views)([^.]*)$ /views/default/pages/$1/index.html [L]' //other pages
+                '^\/(?!views)([a-zA-Z-_]*)([^.]*)$ /$1/views/default/pages$2/index.html [L]'
             ]));
         }
 
