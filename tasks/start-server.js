@@ -19,7 +19,7 @@ module.exports = function taskFactory (host, port, mustacheConfig, channelDefaul
         mustacheConfig.rootDir = staticPaths[0];
 
         mustacheConfig.templatePathOverides = {
-            'core' : staticPaths[0] + '/jspm_components/github/DigitalInnovation/fear-core-app@app-folder-structure'
+            'core' : staticPaths[0] + '/jspm_components/github/DigitalInnovation/fear-core-app@1.0.0'
         };
 
         middleware.push(mustache.middleware(mustacheConfig, channelDefaults));
@@ -39,7 +39,7 @@ module.exports = function taskFactory (host, port, mustacheConfig, channelDefaul
             '^\/(' + exclude.join('|') + ')(\/.*)$ /$1$2', //assets
             '^\/docs\/(.*)$ /generated/$1/index.html [L]', //documentation pages
             '^\/$ /views/default/pages/home/index.html [L]', //home page
-            '^\/hub$ /jspm_components/github/DigitalInnovation/fear-core-app@app-folder-structure/views/default/pages/hub/index.html [L]', //hub page
+            '^\/hub$ /jspm_components/github/DigitalInnovation/fear-core-app@1.0.0/views/default/pages/hub/index.html [L]', //hub page
             '^\/(?!views)([a-zA-Z-_]*)([^.]*)$ /$1/views/default/pages$2/index.html [L]'
         ]));
     }
