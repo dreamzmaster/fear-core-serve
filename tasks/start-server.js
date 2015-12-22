@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function taskFactory (host, port, mustacheConfig, channelDefaults, customMiddleware, staticPaths, liveReloadConditions) {
+module.exports = function taskFactory (host, port, staticPaths, liveReloadConditions, mustacheConfig, channelDefaults, customMiddleware) {
 
     var connect = require('gulp-connect');
     var gulpif = require('gulp-if');
@@ -26,8 +26,10 @@ module.exports = function taskFactory (host, port, mustacheConfig, channelDefaul
     }
 
     function addCustomMiddleware() {
-        for (var m in customMiddleware) {
-            middleware.push(customMiddleware[m]);
+        if (customMiddleware) {
+            for (var m in customMiddleware) {
+                middleware.push(customMiddleware[m]);
+            }
         }
     }
 
@@ -51,9 +53,15 @@ module.exports = function taskFactory (host, port, mustacheConfig, channelDefaul
     }
 
     function getMiddleware(connect) {
+
         addCustomMiddleware();
-        addMustacheMiddleware();
+
+        if (mustacheConfig && channelDefaults) {
+            addMustacheMiddleware();
+        }
+
         addRewriteMiddleware();
+
         addStaticPaths(connect);
 
         return middleware;
