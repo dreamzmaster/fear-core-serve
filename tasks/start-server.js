@@ -4,6 +4,7 @@ module.exports = function taskFactory (host, port, staticPaths, liveReloadCondit
 
     var connect = require('gulp-connect');
     var gulpif = require('gulp-if');
+    var gutil = require('gulp-util');
     var query = require('connect-query');
     var mustache = require('connect-mustache-middleware');
     var modRewrite = require('connect-modrewrite');
@@ -16,21 +17,34 @@ module.exports = function taskFactory (host, port, staticPaths, liveReloadCondit
 
     function addMustacheMiddleware() {
 
-        mustacheConfig.rootDir = staticPaths[0];
+        if (mustacheConfig && channelDefaults) {
 
-        mustacheConfig.templatePathOverides = {
-            'core' : staticPaths[0] + '/jspm_components/github/DigitalInnovation/fear-core-app@1.0.0'
-        };
+            gutil.log(gutil.colors.green('Adding mustache middleware'));
 
-        middleware.push(mustache.middleware(mustacheConfig, channelDefaults));
+            mustacheConfig.rootDir = staticPaths[0];
+
+            mustacheConfig.templatePathOverides = {
+                'core': staticPaths[0] + '/jspm_components/github/DigitalInnovation/fear-core-app@1.0.0'
+            };
+
+            middleware.push(mustache.middleware(mustacheConfig, channelDefaults));
+        }
+
+        return false;
     }
 
     function addCustomMiddleware() {
+
         if (customMiddleware) {
+
+            gutil.log(gutil.colors.green('Adding ' + customMiddleware.length + ' custom middleware'));
+
             for (var m in customMiddleware) {
                 middleware.push(customMiddleware[m]);
             }
         }
+
+        return false;
     }
 
     function addRewriteMiddleware() {
@@ -56,9 +70,7 @@ module.exports = function taskFactory (host, port, staticPaths, liveReloadCondit
 
         addCustomMiddleware();
 
-        if (mustacheConfig && channelDefaults) {
-            addMustacheMiddleware();
-        }
+        addMustacheMiddleware();
 
         addRewriteMiddleware();
 
@@ -74,5 +86,6 @@ module.exports = function taskFactory (host, port, staticPaths, liveReloadCondit
     };
 
     connect.server(opts);
+
     return connect;
 };
