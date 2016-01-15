@@ -22,7 +22,11 @@
   "bugs": {
     "url": "https://github.com/DigitalInnovation/fear-core-serve/issues"
   },
-  "homepage": "https://github.com/DigitalInnovation/fear-core-serve",
+  "homepage": "http://digitalinnovation.github.io/fear-core-serve",
+  "repository" : {
+    "type" : "git",
+    "url" : "https://github.com/DigitalInnovation/fear-core-serve"
+  },
   "dependencies": {
     "chai": "3.4.1",
     "connect-mustache-middleware": "git+https://github.com/DigitalInnovation/connect-mustache-middleware",
