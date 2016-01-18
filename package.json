@@ -8,11 +8,10 @@
     "test": "mocha 'test/**/*.spec.js'",
     "pretest": "npm run eslint",
     "watch:test": "onchange test/**/*.js tasks/**/*.js -- npm run test -s",
-    "dev": "npm run watch:test -s"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/DigitalInnovation/fear-core-serve.git"
+    "dev": "npm run watch:test -s",
+    "docs": "./node_modules/.bin/jsdoc ./tasks index.js --recurse --destination docs --readme README.md",
+    "prepublish" : "npm test",
+    "postpublish": "git checkout gh-pages; git merge master --strategy-option theirs; npm run docs; git add .; git commit -m 'update jsdocs'; git push upstream gh-pages; git checkout master"
   },
   "author": {
     "name": "Alex Bowen",
@@ -50,13 +49,9 @@
   },
   "devDependencies": {
     "eslint": "1.2.1",
-    "onchange": "2.0.0"
+    "onchange": "2.0.0",
+    "jsdoc": "3.4.0"
   },
-  "gitHead": "077bc9a3c081b359a778dd9a32be77382913b642",
-  "readme": "ERROR: No README data found!",
-  "readmeFilename": "README.md",
-  "_id": "fear-core-serve@1.0.0",
-  "_shasum": "a8a9d5676448d80bedb0d72d0608e4425bba822a",
-  "_from": "../../../../../../var/folders/sd/1p38z21j0kxfthyrfsmg2lwc0000gp/T/npm-88061-7f8ce0f4/git-cache-b34a41353b10/ca6a1d90930c7f3381644a955f43f4d488c8da02",
-  "_resolved": "git+https://github.com/digitalinnovation/fear-core-serve#ca6a1d90930c7f3381644a955f43f4d488c8da02"
+  "readme": "This repo contains core `gulp` tasks for serving application which can be configured and used in any FEAR projects alltogether or individually.\n\nThe Core tasks in this repo are provided in a factory function format for developer convenience, so you can use the functionality but can give any name to the task you create and configure it as much as the Core Task API makes it possible (see examples below).\n\n## Installation\n\nTo use any of the provided Core gulp tasks, please install the module first:\n\n```\n\n$ npm install --save-dev git+ssh://git@github.com:DigitalInnovation/fear-core-serve.git\n\n```",
+  "readmeFilename": "README.md"
 }

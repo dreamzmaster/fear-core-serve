@@ -1,5 +1,20 @@
 'use strict';
 
+/**
+ * @module tasks/start-server
+ */
+
+/**
+ * taskFactory
+ * @param host {String}
+ * @param port {String}
+ * @param staticPaths {Array}
+ * @param liveReloadConditions {Function}
+ * @param mustacheConfig {Object}
+ * @param channelDefaults {Object}
+ * @param customMiddleware {Array}
+ * @returns {*|exports}
+ */
 module.exports = function taskFactory (host, port, staticPaths, liveReloadConditions, mustacheConfig, channelDefaults, customMiddleware) {
 
     var connect = require('gulp-connect');
@@ -40,7 +55,9 @@ module.exports = function taskFactory (host, port, staticPaths, liveReloadCondit
             gutil.log(gutil.colors.green('Adding ' + customMiddleware.length + ' custom middleware'));
 
             for (var m in customMiddleware) {
-                middleware.push(customMiddleware[m]);
+                if (customMiddleware.hasOwnProperty(m)) {
+                    middleware.push(customMiddleware[m]);
+                }
             }
         }
 
@@ -62,7 +79,9 @@ module.exports = function taskFactory (host, port, staticPaths, liveReloadCondit
 
     function addStaticPaths(connect) {
         for (var p in staticPaths) {
-            middleware.push(connect.static(staticPaths[p]));
+            if (staticPaths.hasOwnProperty(p)) {
+                middleware.push(connect.static(staticPaths[p]));
+            }
         }
     }
 

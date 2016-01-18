@@ -1,5 +1,16 @@
 'use strict';
 
+/**
+ * @module tasks/open-url
+ */
+
+/**
+ * taskFactory
+ * @param options {Object}
+ * {protocol : 'http://', host : '127.0.0.1', port : '8000', page : 'bandc/checkout/orderReview', queryString : 'channel=tsop'}
+ * @returns {Function}
+ * gulp stream
+ */
 module.exports = function taskFactory (options) {
 
     var extend = require('extend');

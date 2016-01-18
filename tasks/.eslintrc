@@ -1,0 +1,9 @@
+{
+    "rules": {
+        "no-console": 1
+    },
+    "globals": {
+        "document": true,
+        "phantom": true
+    }
+}
