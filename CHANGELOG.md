@@ -1,6 +1,6 @@
 # fear-core-tasks change log
 
-## 1.1.4
+## 1.1.5
 
 - upgrade phatomJS version to 2.1.3
 
