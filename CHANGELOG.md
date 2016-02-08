@@ -7,3 +7,7 @@
 ## 1.1.3
 
 - added documentation
+
+## 1.1.3
+
+- upgrade phatomJS version to 2.1.3
